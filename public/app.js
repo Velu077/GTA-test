@@ -1,12 +1,10 @@
-﻿/* ==========================================
+/* ==========================================
    GTA VI COUNTDOWN VAULT â€” app.js
    ========================================== */
 
-// â”€â”€ API BASE â”€â”€
-const API = (() => {
-  const isLocal = location.protocol === 'file:';
-  return isLocal ? null : '';  // null = use embedded fallback
-})();
+// ── API BASE ──
+// Works on Vercel (https), local server (http), AND file:// (uses fallback)
+const API = location.protocol === 'file:' ? null : '';
 
 // â”€â”€ STATE â”€â”€
 let activeTab = 'home';
@@ -328,18 +326,25 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupHeader();
   setupCodeTabs();
 
-  // Load data
-  await Promise.all([
+  function dismissSplash() {
+    const splash = document.getElementById('splash');
+    if (splash && !splash.classList.contains('gone')) {
+      splash.classList.add('gone');
+    }
+  }
+
+  // Dismiss splash with a hard 2.0s guarantee
+  const splashTimer = setTimeout(dismissSplash, 2000);
+
+  // Load data in background
+  Promise.allSettled([
     loadNews(),
     loadTrailers(),
     loadWallpapers(),
     loadRadio()
-  ]);
-
-  // Dismiss splash
-  setTimeout(() => {
-    document.getElementById('splash').classList.add('gone');
-  }, 2400);
+  ]).finally(() => {
+    dismissSplash();
+  });
 });
 
 /* ==========================================
@@ -431,7 +436,10 @@ function toggleHeaderRadio() {
 async function fetchOrFallback(endpoint, fallback) {
   if (!API) return fallback;
   try {
-    const r = await fetch(API + endpoint);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3500);
+    const r = await fetch(API + endpoint, { signal: controller.signal });
+    clearTimeout(timeoutId);
     if (!r.ok) throw new Error(r.status);
     return await r.json();
   } catch { return fallback; }
