@@ -1,0 +1,9 @@
+﻿{
+  "name": "gta6-countdown-vault",
+  "version": "1.0.0",
+  "description": "GTA VI Countdown & Vice City Vault â€” PWA with Vercel serverless backend",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

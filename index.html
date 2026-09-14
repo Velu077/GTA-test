@@ -1,0 +1,173 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>GTA 6 Countdown &amp; Vice City Vault</title>
+  <meta name="theme-color" content="#13131a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="app-header">
+    <div class="header-left">
+      <span class="header-title">GTA VI COUNTDOWN</span>
+      <span class="badge-live">LIVE</span>
+    </div>
+    <div class="header-right">
+      <button class="btn-apk" id="btn-apk" title="Download Android APK">
+        <span class="material-symbols-outlined">android</span><span>APK</span>
+      </button>
+      <button class="btn-flutter" id="btn-flutter" title="View Flutter Source">
+        <span class="material-symbols-outlined">code</span><span class="hide-xs">FLUTTER</span>
+      </button>
+      <button class="btn-radio" id="btn-radio" title="Toggle Vice City Radio">
+        <span class="material-symbols-outlined" id="radio-icon">radio</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="app-main">
+    <section id="tab-home" class="tab-section active">
+      <div class="countdown-hero">
+        <div class="hero-tags">
+          <span class="tag-pill">ROCKSTAR GAMES</span>
+          <span class="tag-pill pink">OFFICIAL RELEASE WINDOW</span>
+        </div>
+        <h1 class="hero-title">GTA VI</h1>
+        <p class="hero-sub">VICE CITY &nbsp;·&nbsp; LEONIDA STATE &nbsp;·&nbsp; LUCIA &amp; JASON</p>
+        <div class="countdown-timer">
+          <div class="time-block"><span class="tv" id="t-days">---</span><span class="tl">DAYS</span></div>
+          <span class="tsep">:</span>
+          <div class="time-block"><span class="tv" id="t-hours">--</span><span class="tl">HRS</span></div>
+          <span class="tsep">:</span>
+          <div class="time-block"><span class="tv" id="t-mins">--</span><span class="tl">MIN</span></div>
+          <span class="tsep">:</span>
+          <div class="time-block"><span class="tv" id="t-secs">--</span><span class="tl">SEC</span></div>
+        </div>
+        <p class="hero-note">Rockstar Games Confirms Fall 2025 Release Target in Take-Two Earnings Call</p>
+      </div>
+
+      <div class="section-block">
+        <h2 class="sec-heading">PROTAGONISTS</h2>
+        <div class="char-cards">
+          <div class="char-card">
+            <div class="char-avatar pink-glow"><span class="material-symbols-outlined" style="font-size:48px;color:#ff479c">person</span></div>
+            <div class="char-info">
+              <h3>LUCIA CAMINOS</h3>
+              <p class="char-role">TACTICAL AGILITY · STEALTH</p>
+              <p class="char-desc">First female GTA protagonist. Former inmate turned outlaw — inspired by Bonnie &amp; Clyde. Switch to Lucia for precision &amp; infiltration.</p>
+            </div>
+          </div>
+          <div class="char-card">
+            <div class="char-avatar cyan-glow"><span class="material-symbols-outlined" style="font-size:48px;color:#00eefc">person</span></div>
+            <div class="char-info">
+              <h3>JASON DUVAL</h3>
+              <p class="char-role">HEAVY WEAPONS · BRUTE FORCE</p>
+              <p class="char-desc">Lucia's partner. Features shared bankrolls and trust levels. Switch to Jason for heavy combat and vehicle control.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h2 class="sec-heading">GAME INTEL</h2>
+        <div class="intel-grid">
+          <div class="intel-card"><span class="material-symbols-outlined">map</span><span class="il">MAP SIZE</span><span class="iv">2.5× Los Santos</span></div>
+          <div class="intel-card"><span class="material-symbols-outlined">location_city</span><span class="il">SETTING</span><span class="iv">Vice City, Leonida</span></div>
+          <div class="intel-card"><span class="material-symbols-outlined">radio</span><span class="il">RADIO</span><span class="iv">80s Synth + Miami Trap</span></div>
+          <div class="intel-card"><span class="material-symbols-outlined">devices</span><span class="il">PLATFORMS</span><span class="iv">PS5 · Xbox Series X</span></div>
+          <div class="intel-card"><span class="material-symbols-outlined">calendar_month</span><span class="il">TARGET</span><span class="iv">Fall 2025</span></div>
+          <div class="intel-card"><span class="material-symbols-outlined">groups</span><span class="il">PROTAGONISTS</span><span class="iv">Lucia &amp; Jason</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-news" class="tab-section">
+      <div class="tab-hdr"><h2>VICE CITY NEWS</h2><p>Latest leaks, reveals &amp; official updates</p></div>
+      <div class="news-list" id="news-list"></div>
+    </section>
+
+    <section id="tab-trailers" class="tab-section">
+      <div class="tab-hdr"><h2>TRAILERS</h2><p>Official GTA VI video reveals</p></div>
+      <div class="trailers-list" id="trailers-list"></div>
+    </section>
+
+    <section id="tab-wallpapers" class="tab-section">
+      <div class="tab-hdr"><h2>4K AMOLED PAPERS</h2><p>42 Ultra-HD wallpapers for Android AMOLED</p></div>
+      <div class="wp-filter" id="wp-filter"></div>
+      <div class="wp-grid" id="wp-grid"></div>
+    </section>
+
+    <section id="tab-system" class="tab-section">
+      <div class="tab-hdr"><h2>SYSTEM</h2><p>Downloads, source code &amp; app settings</p></div>
+      <div class="sys-cards">
+        <div class="sys-card cyan-card">
+          <span class="material-symbols-outlined sys-icon">android</span>
+          <div class="sys-body">
+            <h3>Download Android APK</h3>
+            <p>Install the GTA 6 Countdown app on Android — AMOLED dark theme, Vice City neon, live countdown home screen widget.</p>
+            <button class="sys-btn cyan-btn" onclick="showToast('APK download starting...')">
+              <span class="material-symbols-outlined">download</span> DOWNLOAD APK
+            </button>
+          </div>
+        </div>
+        <div class="sys-card pink-card">
+          <span class="material-symbols-outlined sys-icon">code</span>
+          <div class="sys-body">
+            <h3>Flutter Dart Source Code</h3>
+            <p>Complete Flutter &amp; Dart Android source. MIT licensed. Includes all 5 screens, neon theme, wallpaper service &amp; Gradle config.</p>
+            <button class="sys-btn pink-btn" onclick="showToast('Packaging Flutter source code...')">
+              <span class="material-symbols-outlined">folder_zip</span> DOWNLOAD SOURCE
+            </button>
+          </div>
+        </div>
+        <div class="sys-card purple-card">
+          <span class="material-symbols-outlined sys-icon">wallpaper</span>
+          <div class="sys-body">
+            <h3>Wallpapers Pack ZIP</h3>
+            <p>Packaging 42 Wallpapers in 4K UHD ZIP — Rockstar GTA Art Quality grading, optimized for OLED black levels.</p>
+            <button class="sys-btn purple-btn" onclick="showToast('Packaging 42 Wallpapers in 4K UHD ZIP...')">
+              <span class="material-symbols-outlined">download</span> DOWNLOAD ZIP
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block" style="margin-top:28px">
+        <h2 class="sec-heading">VICE CITY RADIO STATIONS</h2>
+        <div class="radio-list" id="radio-list"></div>
+      </div>
+
+      <div class="section-block" style="margin-top:28px">
+        <h2 class="sec-heading">FLUTTER SOURCE — pubspec.yaml</h2>
+        <div class="code-block"><pre id="code-pubspec"></pre></div>
+      </div>
+    </section>
+  </main>
+
+  <nav id="bottom-nav">
+    <button class="nav-item active" data-tab="home">
+      <span class="material-symbols-outlined">explore</span><span>HOME</span>
+    </button>
+    <button class="nav-item" data-tab="news">
+      <span class="material-symbols-outlined">feed</span><span>NEWS</span>
+    </button>
+    <button class="nav-item" data-tab="trailers">
+      <span class="material-symbols-outlined">smart_display</span><span>TRAILERS</span>
+    </button>
+    <button class="nav-item" data-tab="wallpapers">
+      <span class="material-symbols-outlined">wallpaper</span><span>PAPERS</span>
+    </button>
+    <button class="nav-item" data-tab="system">
+      <span class="material-symbols-outlined">tune</span><span>SYSTEM</span>
+    </button>
+  </nav>
+
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
